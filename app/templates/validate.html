@@ -1,0 +1,9 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Validate</h1>
+    {% for session in result %}
+            <li>{{ session }}</li>
+            {% endfor %}
+{% endblock %}

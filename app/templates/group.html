@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">群体管理</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            新建群体
+                        </div>
+                        <div class="panel-body">
+                                    <form action="" role="form" method="post" name="index" enctype="multipart/form-data">
+                                        {{form.hidden_tag()}}
+                                        <div class="form-group">
+                                            <label>群体名称</label>
+                                            {{ form.groupName(size = 42) }}
+                                            <!--<input class="form-control" placeholder="请定义群体名称">-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>关键词</label>
+                                            {{ form.keyWord(size = 42) }}
+                                            {% for error in form.keyWord.errors %}
+                                                <span style="color: red;">[{{ error }}]</span>
+                                            {% endfor %}
+                                            <!--<input class="form-control" placeholder="请输入群体的关键词,如:上访">-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>开始时间</label><br>
+                                            {{ form.startTime(size = 42) }}
+                                            {% for error in form.startTime.errors %}
+                                                <span style="color: red;">[{{ error }}]</span>
+                                            {% endfor %}
+                                            <!--<input class="form-control" placeholder="格式如:2018-11-01 00:00:00">-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>结束时间</label>
+                                            {{ form.endTime(size = 42) }}
+                                            <!--<input class="form-control" placeholder="格式如:2018-11-02 00:00:00">-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>地域</label>
+                                            {{ form.location }}
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>种子用户</label>
+                                            <input type="file" name="file">
+
+                                        </div>
+                                        <!--<p><input type="submit" value="查看群体"></p>-->
+                                        <button type="submit" class="btn btn-primary">查看群体</button>
+
+                                    </form>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <div class="col-lg-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> 群体概览
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>群体名称</th>
+                                                    <th>关键词</th>
+                                                    <th>时间</th>
+                                                    <th>地理位置</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for group in group_list %}
+                                                <tr>
+                                                    <td><a href="#">{{ group.group_name }}</a></td>
+                                                    <td>{{ group.keyword }}</td>
+                                                    <td>{{ group.start_time }} -- {{ group.end_time }}</td>
+                                                    <td>{{ group.location }}</td>
+
+                                                </tr>
+                                                {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
+            </div>
+            <!-- /.row -->
+        </div>
+    <!-- jQuery -->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../static/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../static/vendor/raphael/raphael.min.js"></script>
+    <script src="../static/vendor/morrisjs/morris.min.js"></script>
+    <script src="../static/data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../static/dist/js/sb-admin-2.js"></script>
+
+{% endblock %}

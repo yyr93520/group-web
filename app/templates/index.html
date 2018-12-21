@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>特定群体发现系统</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../static/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../static/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../static/vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="../static/css/my.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+    <div class="index-background">
+         <div style="padding-top: 30px">
+             <div class="col-xs-2">
+                <span class="chat-img pull-right">
+                    <img src="static/img/logo.png" height="90" width="90"/>
+                </span>
+            </div>
+            <div class="col-xs-10">
+                <h1>特定群体发现系统</h1>
+            </div>
+         </div>
+
+    </div>
+
+    <div class="row my_row">
+{#        <div class="row" style="background-color: white;border-top: 20px;">#}
+                <div class="col-lg-6 col-md-offset-3" style="margin-top: 30px">
+                    <div style="height: 50px">
+                        <h3 style="float: left">群体列表</h3>
+                            <a href="group" style="float: right">
+                            <button type="button" class="btn btn-primary btn-lg" >新建群体</button>
+                        </a>
+                    </div>
+                    <br>
+                    {% for group in group_list %}
+                        <!--<div class="well well-lg" onclick="window.open('../abstract/{{ group.group_id }}')">-->
+                        <a class="my-list-group-item" style="color: #555;" href="{{ url_for('abstract', groupid=group.group_id) }}">
+                        <div class="well well-lg">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <span class="chat-img pull-left">
+                                        <img src="static/img/group1.jpg" alt="User Avatar" class="img-circle" height="100" width="100"/>
+                                    </span>
+                                </div>
+                                <div class="col-xs-8">
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <h4 style="color:#31708f">{{ group.group_name }}</h4>
+                                        </div>
+
+                                        <div>
+                                            <p>
+                                            <strong>关键词 : {{ group.keyword }}</strong>
+                                            </p>
+                                            <p>
+                                            {{ group.start_time }} -- {{ group.end_time }}
+                                            </p>
+                                            <p>
+                                            地理位置 : {{ group.location }}
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <!--
+                                    <div style="margin-top: 50px">
+                                        <a href="{{ url_for('abstract', groupid=group.group_id) }}" style="float: right">
+                                            <button type="button" class="btn btn-primary" >查看群体</button>
+                                        </a>
+                                    </div>-->
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        </a>
+                    {% endfor %}
+                </div>
+    </div>
+    </div>
+        <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="static/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="static/vendor/raphael/raphael.min.js"></script>
+    <script src="static/vendor/morrisjs/morris.min.js"></script>
+    <script src="static/data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="static/dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+.my_row{
+    background-color: white;
+    border-top: 20px;
+}
+
+.hide-div {
+  display: none;
+}
+
+.bui-stdmod-body{
+      overflow-x : hidden;
+      overflow-y : auto;
+}
+
+.index-background{
+	height: 150px;
+	background-color: #f5f5f5;
+}
+
+.my-list-group-item {
+    position: relative;
+    display: block;
+    /* padding: 10px 15px; */
+    margin-bottom: -1px;
+    background-color: #fff;
+    color: #555;
+    /* border: 1px solid #ddd; */
+}

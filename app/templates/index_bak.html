@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+      <h1>请选择群体:</h1>
+<form action="" method="post" name="index">
+    {{form.hidden_tag()}}
+    <p>
+        {{ form.startTime.label }} : {{ form.startTime }}
+        {% for error in form.startTime.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+    </p>
+    <p>
+        {{ form.endTime.label }} : {{ form.endTime }}
+    </p>
+    <p>
+        {{ form.keyWord.label }} : {{ form.keyWord }}
+        {% for error in form.keyWord.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+    </p>
+    <p>
+        {{ form.location.label }} : {{ form.location }}
+    </p>
+    <p><input type="submit" value="查看群体"></p>
+</form>
+{% endblock %}
